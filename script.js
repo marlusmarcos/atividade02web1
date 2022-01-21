@@ -103,6 +103,9 @@ function pegarTodo () {
         xhttpAssincrono (concluidas, 3, id);
     } else if (document.getElementById("tarefainc").checked){
         xhttpAssincrono (naoconcluidas, 3, id);
+    } else {
+        document.getElementById("tarefas").checked = true;
+        xhttpAssincrono (mostrarTodo, 3, id);
     }
 }
 
