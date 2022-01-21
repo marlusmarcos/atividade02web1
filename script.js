@@ -48,3 +48,24 @@ function mostrarUsuarios (response) {
 
 }
 pegarUsuarios();
+
+function pegarPosts () {
+    let id = document.getElementById("nomeid").value;
+    xhttpAssincrono (mostrarPost, 2, id);
+}
+
+function mostrarPost(response){
+    m_post = document.getElementById("postsid");
+    m_post.innerHTML = "";
+    if (document.getElementById("userPostid").checked) {
+        let dados_post = JSON.parse(response);
+        for (i = 0; i < dados_post.length; i++){
+            console.log(dados_post[i].title);
+            var li = document.createElement('li');
+            li.innerHTML = dados_post[i].title;
+            m_post.appendChild(li);
+        }
+        
+    }
+}
+
