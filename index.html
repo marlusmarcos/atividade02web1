@@ -7,19 +7,27 @@
     <title>Marlus-Atividade02</title>
     <script src="script.js"></script>
 </head>
-<body>
+<body onload="ocultar()">
     <form action="">
-        <select name="nome" id="nomeid" onchange="pegarPosts()">
+        <select name="nome" id="nomeid" onchange="pegar()">
             <option value="0" disabled="true" selected="true" >selecione uma opção</option>
         </select>
         <br>
-        <input type="radio" id="userPostid"  onclick="pegarPosts()">
+        <input type="radio" id="userPostid"  name ="opc" onclick="pegarPosts()">
         <label for="userPostid" >User Post</label> <br> 
+        <input type="radio" id="todoid"  name ="opc" onclick="pegarTodo()">
+        <label for="todoid" >User TODO</label>
+        <div class="container" >
+            <input type="radio" id="tarefas" name ="tarefa" onclick="pegarTodo()" checked>
+            <label for="tarefas" >Todas as tarefas </label > <br>
+            <input type="radio" id="tarefaok" name ="tarefa" onclick="pegarTodo()">
+            <label for="tarefaok" >Todas concluidas </label><br>
+            <input type="radio" id="tarefainc" name ="tarefa" onclick="pegarTodo()">
+            <label for="tarefainc" >Todas não concluidas </label>
+        </div>
+    
     </form>
-
-    <ul id="postsid">
-        <li ></li>
-    </ul>
+    <ul id="postsid"></ul>
         
 </body>
 </html>

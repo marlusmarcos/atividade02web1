@@ -34,6 +34,7 @@ function xhttpAssincrono(callBackFunction, type, value) {
 
 function pegarUsuarios() {
     xhttpAssincrono (mostrarUsuarios, 1, null);
+
 }
 
 function mostrarUsuarios (response) {
@@ -49,18 +50,30 @@ function mostrarUsuarios (response) {
 }
 pegarUsuarios();
 
+function pegar () {
+    if (document.getElementById("userPostid").checked) {
+        pegarPosts();
+    } 
+    if (document.getElementById("todoid").checked) {
+        pegarTodo();
+    }
+    
+}
+
 function pegarPosts () {
     let id = document.getElementById("nomeid").value;
     xhttpAssincrono (mostrarPost, 2, id);
 }
 
 function mostrarPost(response){
+    ocultar();
     m_post = document.getElementById("postsid");
-    m_post.innerHTML = "";
+    m_post.innerHTML = " Post do usuário";
     if (document.getElementById("userPostid").checked) {
         let dados_post = JSON.parse(response);
+        //mostrarFiltros();
         for (i = 0; i < dados_post.length; i++){
-            console.log(dados_post[i].title);
+            
             var li = document.createElement('li');
             li.innerHTML = dados_post[i].title;
             m_post.appendChild(li);
@@ -69,3 +82,78 @@ function mostrarPost(response){
     }
 }
 
+function ocultar() {
+    m_todo = document.querySelector(".container");
+    m_todo.style.display = 'none';
+}
+
+
+function mostrar () {
+    m_todo = document.querySelector(".container");
+    m_todo.style.display = 'block';
+    //mostrarTodo();
+}
+
+function pegarTodo () {
+    let id = document.getElementById("nomeid").value;
+    mostrar();
+    if (document.getElementById("tarefas").checked){
+        xhttpAssincrono (mostrarTodo, 3, id);
+    } else if (document.getElementById("tarefaok").checked) {
+        xhttpAssincrono (concluidas, 3, id);
+    } else if (document.getElementById("tarefainc").checked){
+        xhttpAssincrono (naoconcluidas, 3, id);
+    }
+}
+
+function mostrarTodo(response) {
+    //teste();
+    //document.getElementById("tarefas") = true;
+    //mostrar();
+    m_post = document.getElementById("postsid");
+    m_post.innerHTML = "";
+    if (document.getElementById("todoid").checked) {
+        let dados_post = JSON.parse(response);
+        //mostrarFiltros();
+        for (i = 0; i < dados_post.length; i++){
+            //console.log(dados_post[i].title);
+            var li = document.createElement('li');
+            li.innerHTML = "concluida: "+ dados_post[i].completed + " - "  + dados_post[i].title;
+            m_post.appendChild(li);
+        }
+        
+    }
+}
+function concluidas(response) {
+    m_post = document.getElementById("postsid");
+    m_post.innerHTML = "";
+    if (document.getElementById("todoid").checked) {
+        let dados_post = JSON.parse(response);
+        //mostrarFiltros();
+        for (i = 0; i < dados_post.length; i++){
+            //console.log(dados_post[i].title);
+            if (dados_post[i].completed == true) {
+                var li = document.createElement('li');
+                li.innerHTML = "concluida: "+ dados_post[i].completed + " - "  + dados_post[i].title;
+                m_post.appendChild(li);
+            }
+        }
+    }
+}
+
+function naoconcluidas(response) {
+    m_post = document.getElementById("postsid");
+    m_post.innerHTML = "";
+    if (document.getElementById("todoid").checked) {
+        let dados_post = JSON.parse(response);
+        //mostrarFiltros();
+        for (i = 0; i < dados_post.length; i++){
+            //console.log(dados_post[i].title);
+            if (dados_post[i].completed == false) {
+                var li = document.createElement('li');
+                li.innerHTML = "concluida: "+ dados_post[i].completed + " - "  + dados_post[i].title;
+                m_post.appendChild(li);
+            }
+        }
+    }
+}
