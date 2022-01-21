@@ -6,8 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Marlus-Atividade02</title>
     <script src="script.js"></script>
+    <link rel="stylesheet" type="text/css" href="estilo.css"/>
 </head>
 <body onload="ocultar()">
+
+    <div class="marlus">
+        Aluno: Marlus Marcos Rodrigues Costa da Silva
+    </div>
+
+
     <form action="">
         <select name="nome" id="nomeid" onchange="pegar()">
             <option value="0" disabled="true" selected="true" >selecione uma opção</option>
@@ -18,7 +25,7 @@
         <input type="radio" id="todoid"  name ="opc" onclick="pegarTodo()">
         <label for="todoid" >User TODO</label>
         <div class="container" >
-            <input type="radio" id="tarefas" name ="tarefa" onclick="pegarTodo()" checked>
+            <input type="radio" id="tarefas" name ="tarefa" onclick="pegarTodo()" >
             <label for="tarefas" >Todas as tarefas </label > <br>
             <input type="radio" id="tarefaok" name ="tarefa" onclick="pegarTodo()">
             <label for="tarefaok" >Todas concluidas </label><br>

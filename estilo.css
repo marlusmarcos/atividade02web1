@@ -1,0 +1,21 @@
+#nomeid {
+    padding: 10px;
+    font-size: 18px;
+}
+
+#postsid {
+    background-color: rgb(233, 185, 238);
+    font-size: 25px;
+}
+div.a {
+    text-align: center;
+    height: 30px;
+    padding-top: 20px;
+    font-size: 50px;
+    padding: 30px;
+}
+div.marlus {
+    padding: 30px;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}

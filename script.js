@@ -111,7 +111,7 @@ function mostrarTodo(response) {
     //document.getElementById("tarefas") = true;
     //mostrar();
     m_post = document.getElementById("postsid");
-    m_post.innerHTML = "";
+    m_post.innerHTML = "<div class = 'a'> Todas as tarefas </div>";
     if (document.getElementById("todoid").checked) {
         let dados_post = JSON.parse(response);
         //mostrarFiltros();
@@ -126,7 +126,7 @@ function mostrarTodo(response) {
 }
 function concluidas(response) {
     m_post = document.getElementById("postsid");
-    m_post.innerHTML = "";
+    m_post.innerHTML = "<div class = 'a'> Todas as tarefas Concluidas </div>";
     if (document.getElementById("todoid").checked) {
         let dados_post = JSON.parse(response);
         //mostrarFiltros();
@@ -143,7 +143,7 @@ function concluidas(response) {
 
 function naoconcluidas(response) {
     m_post = document.getElementById("postsid");
-    m_post.innerHTML = "";
+    m_post.innerHTML = "<div class = 'a'> Todas as tarefas não concluidas</div>";
     if (document.getElementById("todoid").checked) {
         let dados_post = JSON.parse(response);
         //mostrarFiltros();
